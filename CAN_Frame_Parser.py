@@ -37,7 +37,7 @@ class CANFrame:
         if num_bytes > 8:
             return False, "INVALID: too many bytes, the max is 8 bytes."
 
-        return True, "VALID" #returneaza un tuple, nu e musai sa aiba paranteze de tipul (True/False|Mesaj)
+        return True, "VALID"
 
 
 def parse_line(line):
@@ -61,15 +61,15 @@ invalid_count=0
 id_counts={}
 results=[]
 
-with open("sample_log.txt") as f: # deschide fisierul si il inchide automat
-    for line in f: #parcurge fiecare linie din fisier
-        line=line.strip() #elimina spatiile si \n
-        if line== "": #asta e o verificare extra, in caz de exista un rand gol care avea un newline
+with open("sample_log.txt") as f:
+    for line in f:
+        line=line.strip()
+        if line== "":
             continue
-        try: # e mai bun try daca codul functioneaza in mare parte a timpului fat de if si daca se pot intampla crashuri random
+        try:
             frame=parse_line(line)
-            valid, reason=frame.is_valid() #face legatura cu tupleul (TRUE/FALSE,Mesaj) din functia is_valid()
-        except (IndexError,ValueError) as e: #salveaza obiectul erorii in variabila e
+            valid, reason=frame.is_valid()
+        except (IndexError,ValueError) as e:
             print(f"INVALID:malformed line ({e})")
             invalid_count+=1
             continue
