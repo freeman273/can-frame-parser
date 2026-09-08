@@ -1,0 +1,7 @@
+can_id,data_hex,status,reason
+123,1122334455667788,VALID,VALID
+0C8,AABB,VALID,VALID
+456,11223344556677889900,INVALID,"INVALID: too many bytes, the max is 8 bytes."
+XYZ,1122,INVALID,ID is not a valid hexadecimal
+18FF1234,01020304,VALID,VALID
+123,AAB,INVALID,INVALID: the data has an uneven number of hexadecimal characters.
