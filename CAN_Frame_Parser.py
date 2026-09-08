@@ -88,7 +88,7 @@ with open("sample_log.txt") as f:
 print(f"\nSummary:{valid_count} valid, {invalid_count} invalid")
 print("\n Statistics for each ID:")
 for can_id, count in id_counts.items():
-    print(f"ID={can_id}:{count} mesaje")
+    print(f"ID={can_id}:{count} messages")
 with open("results.csv","w",newline="") as csv_file:
     writer=csv.DictWriter(csv_file,fieldnames=["can_id", "data_hex", "status", "reason"])
     writer.writeheader()
